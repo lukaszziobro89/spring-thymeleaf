@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Fridges</title>
+</head>
+<body>
+
+<div class="container">
+
+    <h4>Enter new Fridge details:</h4>
+    <form action="/fridges/create" th:object="${fridge}" method="POST">
+        <input type="text" placeholder="Producer name:" th:field="${fridge.producerName}">
+        <input type="text" placeholder="Door type:" th:field="${fridge.doorType}">
+        <button type="submit">Create fridge</button>
+    </form>
+
+</div>
+</body>
+</html>

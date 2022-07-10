@@ -10,7 +10,6 @@
 
 <div th:switch="${fridges}">
   <div th:case="null"><h1>No fridges yet!</h1></div>
-<!--  <h2 th:case="null">No Fridges yet!</h2>-->
   <div th:case="*">
     <h2>Fridges</h2>
     <table>

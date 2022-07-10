@@ -1,7 +1,6 @@
-package com.luq89.thymeleafdemo.model;
+package com.luq89.thymeleafdemo.fridge;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,4 +18,11 @@ public class Fridge {
     private String producerName;
     private String doorType;
 
+    public Fridge() {}
+
+    public Fridge(String producerName, String doorType) {
+        super();
+        this.producerName = producerName;
+        this.doorType = doorType;
+    }
 }
