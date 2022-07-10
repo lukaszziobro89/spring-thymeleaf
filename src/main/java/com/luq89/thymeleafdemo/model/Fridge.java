@@ -11,12 +11,12 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class Student {
+public class Fridge {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
+    private String producerName;
+    private String doorType;
 
 }
