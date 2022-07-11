@@ -3,16 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Fridges</title>
+
+    <link th:href="@{/styles/styles2.css}" rel="stylesheet" />
+    <link th:href="@{/styles/darkly.min.css}" rel="stylesheet" />
+
+    <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+
 </head>
+
 <body>
 
 <div class="container">
 
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
     <h4>Enter new Fridge details:</h4>
     <form action="/fridges/create" th:object="${fridge}" method="POST">
-        <input type="text" placeholder="Producer name:" th:field="${fridge.producerName}">
-        <input type="text" placeholder="Door type:" th:field="${fridge.doorType}">
-        <button type="submit">Create fridge</button>
+        <label class="form-label mt-4">Producer name:</label><br>
+        <input type="text" placeholder="Enter producer name" th:field="${fridge.producerName}" style="width: 250px;"><br>
+        <label class="form-label mt-4">Door type:</label>
+        <select class="form-select" style="width: 250px;">
+            <option th:each="doorType : ${T(com.luq89.thymeleafdemo.fridge.DoorType).values()}" th:value="${doorType}" th:text="${doorType.displayName}"></option>
+        </select><br>
+        <button type="submit" class="btn btn-success">Create fridge</button>
     </form>
 
 </div>
