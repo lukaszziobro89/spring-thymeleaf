@@ -16,13 +16,22 @@ public class Fridge {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String producerName;
-    private String doorType;
+    private DoorType doorType;
 
     public Fridge() {}
 
     public Fridge(String producerName, String doorType) {
         super();
         this.producerName = producerName;
-        this.doorType = doorType;
+        this.doorType = DoorType.valueOf(doorType);
+    }
+
+    @Override
+    public String toString() {
+        return "Fridge{" +
+                "id=" + id +
+                ", producerName='" + producerName + '\'' +
+                ", doorType=" + doorType.getDisplayName() +
+                '}';
     }
 }
