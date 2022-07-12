@@ -15,31 +15,33 @@
 
 <body>
 
-<div class="container">
+<div class="center container">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="center navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <h4>Enter new Fridge details:</h4>
+    <h4>Enter new fridge details:</h4>
     <form action="/fridges/create" th:object="${fridge}" method="POST">
-        <div class="form-group">
-            <label class="form-label mt-4">Producer name:</label><br>
-            <input class="form-control" type="text" placeholder="Enter producer name" th:field="*{producerName}" style="width: 250px;">
+        <!-- PRODUCER NAME -->
+        <div class="center form-group">
+            <label class="center form-label mt-4">Producer name:</label><br>
+            <input class="center form-control" type="text" placeholder="Enter producer name" th:field="*{producerName}" style="width: 250px;">
         </div>
-        <br>
-
-        <div class="form-group">
-            <label class="form-label mt-4" th:for="doorType">Door type:</label>
-            <select class="form-select" th:field="*{doorType}" style="width: 250px;">
+        <!-- DOOR TYPE -->
+        <div class="center form-group">
+            <label class="center form-label mt-4" th:for="doorType">Door type:</label>
+            <select class="center form-select" th:field="*{doorType}" style="width: 250px;">
                 <option th:each="doorType : ${doorTypes}"
                         th:text="${doorType.displayName}"
                         th:value="${doorType}">
                 </option>
             </select>
+        </div><br>
+        <!-- BUTTON -->
+        <div class="center form-group">
+            <button type="submit" class="center btn btn-success">Create fridge</button>
         </div>
-            <br>
-        <button type="submit" class="btn btn-success">Create fridge</button>
     </form>
 
 </div>

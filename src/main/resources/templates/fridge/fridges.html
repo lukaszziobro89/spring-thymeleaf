@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Fridges</title>
+
+    <link th:href="@{/styles/styles2.css}" rel="stylesheet" />
+    <link th:href="@{/styles/darkly.min.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+
 </head>
 <body>
 
@@ -10,24 +17,27 @@
 
 <div th:switch="${fridges}">
   <div th:case="null"><h1>No fridges yet!</h1></div>
-  <div th:case="*">
+  <div class="center" th:case="*">
     <h2>Fridges</h2>
-    <table>
+
+    <table class="center table table-hover" style="width: 1000px;">
       <thead>
       <tr>
-        <th>Producer</th>
-        <th>Type</th>
+        <th scope="col">ID</th>
+        <th scope="col">Producer</th>
+        <th scope="col">Type</th>
       </tr>
       </thead>
       <tbody>
-
-      <tr th:each="fridge : ${fridges}">
+      <tr class="table-secondary" th:each="fridge : ${fridges}">
+        <td th:text="${fridge.id}"></td>
         <td th:text="${fridge.producerName}"></td>
         <td th:text="${fridge.doorType.getDisplayName()}"></td>
       </tr>
 
       </tbody>
     </table>
+
   </div>
 </div>
 
