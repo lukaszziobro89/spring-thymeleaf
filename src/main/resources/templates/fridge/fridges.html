@@ -21,14 +21,11 @@
       </thead>
       <tbody>
 
-      <option th:each="doorType : ${T(com.luq89.thymeleafdemo.fridge.DoorType).values()}" th:value="${doorType}" th:text="${doorType.displayName}"></option>
-
-
       <tr th:each="fridge : ${fridges}">
         <td th:text="${fridge.producerName}"></td>
-        <td th:text="${fridge.doorType}"></td>
-<!--        <td th:text="${T(com.luq89.thymeleafdemo.fridge.DoorType).displayName}"></td>-->
+        <td th:text="${fridge.doorType.getDisplayName()}"></td>
       </tr>
+
       </tbody>
     </table>
   </div>
