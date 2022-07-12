@@ -28,14 +28,14 @@ public class FridgeController {
     public String displayFridgeForm(Model model){
         Fridge aFridge = new Fridge();
         model.addAttribute("fridge", aFridge);
+        model.addAttribute("doorTypes", DoorType.values());
         return "fridge/addFridge";
     }
 
     @PostMapping("/create")
-    public String createFridge(Model model, Fridge fridge){
+    public String createFridge(Fridge fridge, Model model){
         service.createFridge(fridge);
         logger.info("Fridge with id: " + fridge.getId() + " fridge registered.");
-
         return "redirect:/fridges/add";
     }
 }
