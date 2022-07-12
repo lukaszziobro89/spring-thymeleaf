@@ -14,6 +14,6 @@ public enum DoorType {
     }
 
     public String getDisplayName() {
-        return displayName;
+        return this.displayName;
     }
 }
