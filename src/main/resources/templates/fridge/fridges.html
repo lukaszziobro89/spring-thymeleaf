@@ -16,45 +16,55 @@
 
 
 <div th:switch="${fridges}">
-  <div th:case="null"><h1>No fridges yet!</h1></div>
+
+    <div th:if="${#lists.isEmpty(fridges)}">
+        <h1 class="center">No fridges yet!</h1>
+    </div>
+
+ <div th:if="${not #lists.isEmpty(fridges)}">
+
   <div class="center" th:case="*">
     <h2>Fridges</h2>
 
-    <table class="center table table-hover" style="width: 1000px;">
-      <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Producer</th>
-        <th scope="col">Type</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr class="table-secondary" th:each="fridge : ${fridges}">
-        <td th:text="${fridge.id}"></td>
-        <td th:text="${fridge.producerName}"></td>
-        <td th:text="${fridge.doorType.getDisplayName()}"></td>
-      </tr>
-
-      </tbody>
-    </table>
-
-      <div class="center accordion" id="accordionExample" style="width: 1000px;">
+      <div class="center accordion" id="accordionExample" th:each="fridge : ${fridges}" style="width: 1000px;">
           <div class="center accordion-item">
-              <h2 class="center accordion-header" id="headingOne">
-                  <button class="center accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                      Accordion Item #1
+              <h2 class="center accordion-header" th:id="heading + ${fridge.id}">
+                  <button class="center accordion-button collapsed" type="button" data-bs-toggle="collapse" th:attr="data-bs-target=|#collapseOne${fridge.id}" aria-expanded="false" aria-controls="collapseOne">
+                      Fridge
+                      <span class="badge bg-primary" th:text="${fridge.id}"></span>
+                      <span class="badge bg-warning" th:text="${fridge.producerName}"></span>
+                      <span class="badge bg-info" th:text="${fridge.doorType.getDisplayName()}"></span>
                   </button>
               </h2>
-              <div id="collapseOne" class="center accordion-collapse collapse" aria-labelledby="headingOne" data-parent="#accordionExample" data-bs-parent="#accordionExample" style="width: 1000px;">
-                  <div class="center accordion-body">
-                      <strong>This is the first item's accordion body.</strong>
+              <div th:id="collapseOne + ${fridge.id}" class="center accordion-collapse collapse" th:attr="aria-labelledby=|heading${fridge.id}|" data-parent="#accordionExample" data-bs-parent="#accordionExample" style="width: 1000px;">
+                  <div class="center accordion-body" id="body${fridge.id}">
+                      <table class="center table table-hover" style="width: 900px;">
+                          <thead>
+                          <tr>
+                              <th scope="col" >Product ID</th>
+                              <th scope="col">Product Name</th>
+                              <th scope="col">Quantity</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr class="table-primary">
+                              <td th:text="${fridge.id}">a</td>
+                              <td th:text="${fridge.id}">b</td>
+                              <td th:text="${fridge.id}">c</td>
+                              <th scope="col">
+                                  <button type="button" class="btn btn-warning btn-sm">Delete product</button>
+                              </th>
+                          </tr>
+
+                          </tbody>
+                      </table>
                   </div>
               </div>
           </div>
       </div>
-
-
   </div>
+ </div>
+
 </div>
 
 </body>

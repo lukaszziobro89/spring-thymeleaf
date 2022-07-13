@@ -17,4 +17,16 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    vertical-align: center;
+}
+
+.container-center {
+    right: 50%;
+    bottom: 50%;
+    transform: translate(50%,50%);
+    position: absolute;
+}
+
+.badge{
+    margin: 5px;
 }

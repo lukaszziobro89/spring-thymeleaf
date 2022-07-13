@@ -15,35 +15,35 @@
 
 <body>
 
-<div class="center container">
-
-    <button class="center navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <h4>Enter new fridge details:</h4>
-    <form action="/fridges/create" th:object="${fridge}" method="POST">
-        <!-- PRODUCER NAME -->
-        <div class="center form-group">
-            <label class="center form-label mt-4">Producer name:</label><br>
-            <input class="center form-control" type="text" placeholder="Enter producer name" th:field="*{producerName}" style="width: 250px;">
+    <div class="container-center container">
+        <div class="center card border-success mb-3" style="max-width: 30rem;">
+            <div class="card-header">Add fridge</div>
+            <div class="card-body">
+                <h4 class="card-title">Enter new fridge details</h4>
+                <form action="/fridges/create" th:object="${fridge}" method="POST">
+                    <!-- PRODUCER NAME -->
+                    <div class="center form-group">
+                        <label class="center form-label mt-4">Producer name:</label><br>
+                        <input class="center form-control" type="text" placeholder="Enter producer name" th:field="*{producerName}" style="width: 350px;">
+                    </div>
+                    <!-- DOOR TYPE -->
+                    <div class="center form-group">
+                        <label class="center form-label mt-4" th:for="doorType">Door type:</label>
+                        <select class="center form-select" th:field="*{doorType}" style="width: 350px;">
+                            <option th:each="doorType : ${doorTypes}"
+                                    th:text="${doorType.displayName}"
+                                    th:value="${doorType}">
+                            </option>
+                        </select>
+                    </div><br>
+                    <!-- BUTTON -->
+                    <div class="center form-group">
+                        <button type="submit" class="center btn btn-success">Create fridge</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <!-- DOOR TYPE -->
-        <div class="center form-group">
-            <label class="center form-label mt-4" th:for="doorType">Door type:</label>
-            <select class="center form-select" th:field="*{doorType}" style="width: 250px;">
-                <option th:each="doorType : ${doorTypes}"
-                        th:text="${doorType.displayName}"
-                        th:value="${doorType}">
-                </option>
-            </select>
-        </div><br>
-        <!-- BUTTON -->
-        <div class="center form-group">
-            <button type="submit" class="center btn btn-success">Create fridge</button>
-        </div>
-    </form>
+    </div>
 
-</div>
 </body>
 </html>
