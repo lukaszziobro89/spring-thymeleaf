@@ -6,8 +6,8 @@
 
     <link th:href="@{/styles/styles2.css}" rel="stylesheet" />
     <link th:href="@{/styles/darkly.min.css}" rel="stylesheet" />
-    <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.css}"></script>
     <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
 
 </head>
@@ -37,6 +37,22 @@
 
       </tbody>
     </table>
+
+      <div class="center accordion" id="accordionExample" style="width: 1000px;">
+          <div class="center accordion-item">
+              <h2 class="center accordion-header" id="headingOne">
+                  <button class="center accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      Accordion Item #1
+                  </button>
+              </h2>
+              <div id="collapseOne" class="center accordion-collapse collapse" aria-labelledby="headingOne" data-parent="#accordionExample" data-bs-parent="#accordionExample" style="width: 1000px;">
+                  <div class="center accordion-body">
+                      <strong>This is the first item's accordion body.</strong>
+                  </div>
+              </div>
+          </div>
+      </div>
+
 
   </div>
 </div>
