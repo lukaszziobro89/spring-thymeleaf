@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About</title>
+
+  <link th:href="@{/styles/styles2.css}" rel="stylesheet" />
+  <link th:href="@{/styles/darkly.min.css}" rel="stylesheet" />
+  <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+  <script type="text/javascript" th:src="@{/js/bootstrap.css}"></script>
+  <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+
+</head>
+<body>
+
+<div>
+  <div th:replace="home :: fragment_logo"></div>
+  <div th:replace="home :: fragment_menu"></div>
+</div>
+
+<div class="container-center container">
+  <h2 class="center">About page!</h2>
+</div>
+
+</body>
+</html>
