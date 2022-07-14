@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
 
   <link th:href="@{/styles/styles2.css}" rel="stylesheet" />
   <link th:href="@{/styles/darkly.min.css}" rel="stylesheet" />
@@ -26,10 +26,10 @@
     <div class="container-fluid center">
     <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav me-auto">
-          <!-- TODO: HOME -->
-          <li class="nav-item ">
-            <button type="button" class="btn btn-light btn-margin">Home</button>
-          </li>
+          <!-- HOME -->
+          <form action="#" th:action="@{/home}" th:object="${model}" method="get">
+            <button type="submit" class="btn btn-light btn-margin" name="action" value="cancel" th:formaction="@{/home}">Home</button>
+          </form>
           <!-- FRIDGES -->
           <form action="#" th:action="@{/fridges/}" th:object="${model}" method="get">
             <button type="submit" class="btn btn-secondary btn-margin" name="action" value="cancel" th:formaction="@{/fridges/}">Fridges</button>
@@ -42,14 +42,17 @@
           <li class="nav-item">
             <button type="button" class="btn btn-secondary btn-margin">Add products to fridge</button>
           </li>
-          <!-- TODO: ABOUT -->
-          <li class="nav-item">
-            <button type="button" class="btn btn-light btn-margin">About</button>
-          </li>
+          <form action="#" th:action="@{/about}" th:object="${model}" method="get">
+            <button type="submit" class="btn btn-light btn-margin" name="action" value="cancel" th:formaction="@{/about}">About</button>
+          </form>
         </ul>
       </div>
     </div>
   </nav>
+</div>
+
+<div class="container-center container">
+  <h2 class="center">Welcome to SmartFridge!</h2>
 </div>
 
 </body>
