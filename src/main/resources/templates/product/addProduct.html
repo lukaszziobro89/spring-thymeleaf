@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding Fridges</title>
+
+    <link th:href="@{/styles/styles2.css}" rel="stylesheet" />
+    <link th:href="@{/styles/darkly.min.css}" rel="stylesheet" />
+
+    <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+
+</head>
+
+<body>
+
+    <div>
+        <div th:replace="home :: fragment_logo"></div>
+        <div th:replace="home :: fragment_menu"></div>
+    </div>
+
+    <div class="container-center container" th:if="${#lists.isEmpty(fridges)}">
+        <h1 class="center">No fridges yet, add fridge first!</h1>
+    </div>
+
+<div class="container-center container" th:if="${not #lists.isEmpty(fridges)}">
+    <div class="container-center container">
+        <div class="center card border-success mb-3" style="max-width: 30rem;">
+            <div class="card-header">Add product to fridge</div>
+            <div class="card-body">
+                <h4 class="card-title">Enter product details</h4>
+                <form action="/product/create/{id}" th:object="${product}" method="POST">
+                    <!-- PRODUCER NAME -->
+                    <div class="center form-group">
+                        <label class="center form-label mt-4">Product name:</label><br>
+                        <input class="center form-control" type="text" placeholder="Enter product name" th:field="*{productName}" style="width: 350px;">
+                    </div>
+                    <!-- FRIDGE TYPE -->
+<!--                    <div class="center form-group">-->
+<!--                        <label class="center form-label mt-4" th:object="${fridge}" th:for="id">Fridge id:</label>-->
+<!--                        <select class="center form-select" th:field="*{fridge}" style="width: 350px;">-->
+<!--                            <option th:each="fridge : ${fridges}"-->
+<!--                                    th:text="${fridge.id}"-->
+<!--                                    th:value="${fridge}">-->
+<!--                            </option>-->
+<!--                        </select>-->
+<!--                    </div><br>-->
+<!--                    <form th:action="@{/}">-->
+                        <input type="text" th:name="id"/>
+<!--                        <input type="submit"/>-->
+<!--                    </form>-->
+                    <!-- BUTTON -->
+                    <div class="center form-group">
+                        <button type="submit" class="center btn btn-success">Add product to fridge</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

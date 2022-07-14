@@ -2,7 +2,8 @@ package com.luq89.thymeleafdemo.fridge;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
+
+import java.util.Optional;
 
 @Service
 public class FridgeService {
@@ -13,6 +14,10 @@ public class FridgeService {
 
     public Iterable<Fridge> getAvailableFridges() {
         return fridgeRepository.findAll();
+    }
+
+    public Fridge getFridgeById(Long fridgeId) throws Exception {
+        return fridgeRepository.findById(fridgeId).orElseThrow(Exception::new);
     }
 
     public Fridge createFridge(Fridge fridge) {

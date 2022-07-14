@@ -38,10 +38,10 @@
           <form action="#" th:action="@{/fridges/add}" th:object="${model}" method="get">
             <button type="submit" class="btn btn-secondary btn-margin" name="action" value="cancel" th:formaction="@{/fridges/add}">Add fridge</button>
           </form>
-          <!-- TODO: ADD PRODUCT TO FRIDGE -->
-          <li class="nav-item">
-            <button type="button" class="btn btn-secondary btn-margin">Add products to fridge</button>
-          </li>
+          <!-- ADD PRODUCT TO FRIDGE -->
+          <form action="#" th:action="@{/product/add}" th:object="${model}" method="get">
+            <button type="submit" class="btn btn-secondary btn-margin" name="action" value="cancel" th:formaction="@{/product/add}">Add product to fridge</button>
+          </form>
           <form action="#" th:action="@{/about}" th:object="${model}" method="get">
             <button type="submit" class="btn btn-light btn-margin" name="action" value="cancel" th:formaction="@{/about}">About</button>
           </form>
