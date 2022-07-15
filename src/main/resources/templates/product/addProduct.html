@@ -40,7 +40,7 @@
                     <div class="center form-group">
                         <select class="center form-select" th:field="${fridge.id}" name="id" style="width: 350px;">
                             <option th:each="fridge : ${fridges}"
-                                    th:text="${fridge.producerName}"
+                                    th:text="${fridge.id} + ' - ' +${fridge.fridgeName}"
                                     th:value="${fridge.id}">
                             </option>
                         </select>

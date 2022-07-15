@@ -40,7 +40,13 @@
                                     th:value="${doorType}">
                             </option>
                         </select>
-                    </div><br>
+                    </div>
+                    <!-- FRIDGE NAME / LABEL -->
+                    <div class="center form-group">
+                        <label class="center form-label mt-4">Producer name:</label><br>
+                        <input class="center form-control" type="text" placeholder="Fridge's name (label)" th:field="*{fridgeName}" style="width: 350px;">
+                    </div>
+                    <br>
                     <!-- BUTTON -->
                     <div class="center form-group">
                         <button type="submit" class="center btn btn-success">Create fridge</button>

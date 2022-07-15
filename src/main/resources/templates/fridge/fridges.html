@@ -38,6 +38,7 @@
                       <span class="badge bg-primary" th:text="${fridge.id}"></span>
                       <span class="badge bg-warning" th:text="${fridge.producerName}"></span>
                       <span class="badge bg-info" th:text="${fridge.doorType.getDisplayName()}"></span>
+                      <span class="badge bg-info" th:text="${fridge.fridgeName}"></span>
                   </button>
               </h2>
               <div th:id="collapseOne + ${fridge.id}" class="center accordion-collapse collapse" th:attr="aria-labelledby=|heading${fridge.id}|" data-parent="#accordionExample" data-bs-parent="#accordionExample" style="width: 1000px;">
