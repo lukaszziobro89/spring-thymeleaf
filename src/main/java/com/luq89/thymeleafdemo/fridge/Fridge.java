@@ -18,9 +18,9 @@ public class Fridge {
     private String producerName;
     @Enumerated(EnumType.STRING)
     private DoorType doorType;
+    private String fridgeName;
 
     @OneToMany(mappedBy = "fridge", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JoinColumn(name = "fp_fk", referencedColumnName = "id")
     private List<Product> products;
 
     public Fridge() {}
@@ -31,8 +31,9 @@ public class Fridge {
         this.doorType = DoorType.valueOf(doorType);
     }
 
-    public Fridge(String producerName, DoorType doorType) {
+    public Fridge(String producerName, DoorType doorType, String fridgeName) {
         this.producerName = producerName;
         this.doorType = doorType;
+        this.fridgeName = fridgeName;
     }
 }
