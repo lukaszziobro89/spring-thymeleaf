@@ -35,7 +35,7 @@ public class ProductController {
                                      @RequestParam(value = "id") Long id) throws Exception {
         product.setFridge(fridgeService.getFridgeById(id));
         productService.addProductToFridge(product);
-        log.info("Fridge with id: " + product.getProductName() + " fridge registered.");
+        log.info("Product '" + product.getProductName() + "' added to fridge with id: " + id);
         return "redirect:/product/add";
     }
 }

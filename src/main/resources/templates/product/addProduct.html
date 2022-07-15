@@ -37,19 +37,14 @@
                         <input class="center form-control" type="text" placeholder="Enter product name" th:field="*{productName}" style="width: 350px;">
                     </div>
                     <!-- FRIDGE TYPE -->
-<!--                    <div class="center form-group">-->
-<!--                        <label class="center form-label mt-4" th:object="${fridge}" th:for="id">Fridge id:</label>-->
-<!--                        <select class="center form-select" th:field="*{fridge}" style="width: 350px;">-->
-<!--                            <option th:each="fridge : ${fridges}"-->
-<!--                                    th:text="${fridge.id}"-->
-<!--                                    th:value="${fridge}">-->
-<!--                            </option>-->
-<!--                        </select>-->
-<!--                    </div><br>-->
-<!--                    <form th:action="@{/}">-->
-                        <input type="text" th:name="id"/>
-<!--                        <input type="submit"/>-->
-<!--                    </form>-->
+                    <div class="center form-group">
+                        <select class="center form-select" th:field="${fridge.id}" name="id" style="width: 350px;">
+                            <option th:each="fridge : ${fridges}"
+                                    th:text="${fridge.producerName}"
+                                    th:value="${fridge.id}">
+                            </option>
+                        </select>
+                    </div><br>
                     <!-- BUTTON -->
                     <div class="center form-group">
                         <button type="submit" class="center btn btn-success">Add product to fridge</button>
