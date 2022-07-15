@@ -26,17 +26,13 @@ public class ProductController {
         model.addAttribute("fridges", fridgeService.getAvailableFridges());
         model.addAttribute("product", new Product());
         model.addAttribute("fridge", new Fridge());
-        model.addAttribute("id");
         return "product/addProduct";
     }
 
 
     @PostMapping("/create/{id}")
     public String addProductToFridge(@ModelAttribute Product product,
-//                                     @PathVariable long id
-                                     @RequestBody Long id
-//                                     @RequestParam(value = "id") Long id
-    ) throws Exception {
+                                     @RequestParam(value = "id") Long id) throws Exception {
         product.setFridge(fridgeService.getFridgeById(id));
         productService.addProductToFridge(product);
         log.info("Fridge with id: " + product.getProductName() + " fridge registered.");
