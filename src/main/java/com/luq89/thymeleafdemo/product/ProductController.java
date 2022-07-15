@@ -1,6 +1,5 @@
 package com.luq89.thymeleafdemo.product;
 
-import com.luq89.thymeleafdemo.fridge.DoorType;
 import com.luq89.thymeleafdemo.fridge.Fridge;
 import com.luq89.thymeleafdemo.fridge.FridgeService;
 import lombok.extern.slf4j.Slf4j;
